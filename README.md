@@ -19,4 +19,21 @@ The .NET runtime is like a protective bubble that provides a run enviornment for
 * Manages computer resources like memory and network access.
 * Secures the users computer from software thar has potentially malicious intent, it also provides a layer of isolation between applications.
 
+```csharp
+using System;
 
+public class Program
+{
+  public static void Main()
+  {
+    Console.WriteLine("Hello world!");
+  }
+}
+```
+### Main() Method
+What happens after the code you write in inserted into a main() method. it happens on the server on your behalf
+1. A command to compile your new code invokes the C# compiler
+2. The C# compiler  ensures your code can be compiled and is free from errors. if it does and error message will output.
+3. if successful the .NET runtime opens the newly compiled .NET assembly. By default it looks in a class names `program` to find a method named `Main()` to begin running the instructions
+4. instruction by instruction, the .NET runtime evaluates each line of code. it runs the instruction and moves to the next line of code.
+5. In this case, when the instruction to print the words "Hello world!" finishes, the runtime path continues to the next line but find nothing. The path ends, and the .NET runtime removes the program from its memory. Meanwhile, the output from the WriteLine() instruction is delivered back to your web browser
