@@ -37,3 +37,7 @@ What happens after the code you write in inserted into a main() method. it happe
 3. if successful the .NET runtime opens the newly compiled .NET assembly. By default it looks in a class names `program` to find a method named `Main()` to begin running the instructions
 4. instruction by instruction, the .NET runtime evaluates each line of code. it runs the instruction and moves to the next line of code.
 5. In this case, when the instruction to print the words "Hello world!" finishes, the runtime path continues to the next line but find nothing. The path ends, and the .NET runtime removes the program from its memory. Meanwhile, the output from the WriteLine() instruction is delivered back to your web browser
+
+# File Systems
+You can use .NET to find and return information about files and folders.
+
