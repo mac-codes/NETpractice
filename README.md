@@ -41,3 +41,21 @@ What happens after the code you write in inserted into a main() method. it happe
 # File Systems
 You can use .NET to find and return information about files and folders.
 
+### current directory
+Sometimes you don't know in which directory or path your program should run.
+>.NET exposes the full path ro the current directory via the `Directory.GetCurrentDirectory` method
+```C#
+Console.WriteLine(Directory.GetCurrentDirectory())
+```
+### Special directory
+.NET runs everywhere. each operating system may not have the concept of special system folders like a home directory, or a desktop directory, or a directory storing temporary files.
+Those types of directories differ for each operating system. It would be cumbersome to try to remember each OS's directory structure and perform switches based on the current OS. 
+The `System.Environment.SpecialFolder` enumeration specifies constants to retrieve paths to special folders.
+
+> this returns the path to the equilvelant of the windows *My Documents* folder, or *HOME* directory for an OS
+```C#
+string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+```
+
+### Work with paths
+Paths are a subject that comes up so frequently 
