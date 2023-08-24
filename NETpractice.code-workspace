@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "mslearn-dotnet-files"
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "DotNetDepencies/DotNetDepencies.sln"
+	}
+}
