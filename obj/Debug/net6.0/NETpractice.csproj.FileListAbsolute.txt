@@ -1,0 +1,7 @@
+/Users/mckennalawson/Desktop/NETpractice/obj/Debug/net6.0/NETpractice.csproj.AssemblyReference.cache
+/Users/mckennalawson/Desktop/NETpractice/obj/Debug/net6.0/NETpractice.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mckennalawson/Desktop/NETpractice/obj/Debug/net6.0/NETpractice.AssemblyInfoInputs.cache
+/Users/mckennalawson/Desktop/NETpractice/obj/Debug/net6.0/NETpractice.AssemblyInfo.cs
+/Users/mckennalawson/Desktop/NETpractice/obj/Debug/net6.0/NETpractice.csproj.CoreCompileInputs.cache
+/Users/mckennalawson/Desktop/NETpractice/obj/Debug/net6.0/NETpractice.MvcApplicationPartsAssemblyInfo.cs
+/Users/mckennalawson/Desktop/NETpractice/obj/Debug/net6.0/NETpractice.MvcApplicationPartsAssemblyInfo.cache

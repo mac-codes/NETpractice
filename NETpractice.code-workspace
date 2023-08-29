@@ -3,13 +3,9 @@
 		{
 			"name": "NETpractice",
 			"path": "."
-		},
-		{
-			"name": "mslearn-dotnet-files",
-			"path": "mslearn-dotnet-files"
 		}
 	],
 	"settings": {
-		"dotnet.defaultSolution": "DotNetDepencies/DotNetDepencies.sln"
+		"dotnet.defaultSolution": "NETpractice/NETpractice.sln"
 	}
 }

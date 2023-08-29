@@ -1,13 +1,59 @@
 # .NET
 ## .NET Ecosystem
-The term *ecosystem* encompasses the different elements of an application. These elemts combine to make .NET a compelling platform to learn and build applications.
+The term `ecosystem` encompasses the different elements of an application. These elemts combine to make .NET a compelling platform to learn and build applications.
+## Creating WEB APIs
+When building applications, especially in the context of web development, ASP.NET web APIs offer a powerful way to create RESTful endpoints that allow your application to communicate with other systems and clients
+### Creating a new ASP.NET web API project
+create a new project using the terminal.
+```shell
+dotnet new webapi -f net6.0
+```
+
+### Definging API endpoints
+API endpoints in this context are defined within `controllers`. these are classes that contain public methods. 
+e.g.
+```c#
+using Microsoft.AspNetCore.Mvc;
+
+namespace YourApp.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ProductsController : ControllerBase
+    {
+        [HttpGet]
+        public IActionResult GetProducts()
+        {
+            // Retrieve and return a list of products
+        }
+    }
+}
+```
+### Handling Request and Response data
+ASP.NET web APIs automatically handle serialization and deserialization of data, typically in JSON format.
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    // Other properties
+}
+
+[HttpGet]
+public IActionResult GetProducts()
+{
+    List<Product> products = // Retrieve products
+    return Ok(products); // Returns JSON response
+}
+
+```
 ## Languages and Compilers
 * .NET languages like C# and F# are used to write source code, which instructs the computer during program execution.
 * Code is compiled by the .NET compiler into the intermediate language (IL) before execution, saved in a .NET assebly
 * IL compilation ensures platform independence enabling code to run on various systems.
 
 ## C# vs .NET
-* C# is a **programming language**, while .NET is an **ecosystem**
+* C# is a `programming language`, while .NET is an `ecosystem`
 *  c# allows referencing and calling methods from .NET code libraries (assemblies).
 * The C# Compiler from the .NET SDK generates
 .NET assemblies, which are executeed by the .NET runtime.
@@ -15,10 +61,10 @@ The term *ecosystem* encompasses the different elements of an application. These
 ## .NET runtime functionality
 The .NET runtime provides a controlled environment for the app.
 
-* Compiles IL into a system-specific binary on first run.
-* Identifies the programs entry point and executes instructions sequentially.
-* Manages resources like memory and network access
-* Ensures security against potentially malicious software, offering app isolation
+* *Compiles* IL into a system-specific binary on first run.
+* *Identifies* the programs entry point and executes instructions sequentially.
+* *Manages* resources like memory and network access
+* *Ensures* security against potentially malicious software, offering app isolation
 
 ```csharp
 using System;
@@ -49,24 +95,11 @@ Access curent directory with the `GetCurrentDirectory` method.
 ```C#
 Console.WriteLine(Directory.GetCurrentDirectory())
 ```
-### Special directory
-.NET runs everywhere. each operating system may not have the concept of special system folders like a home directory, or a desktop directory, or a directory storing temporary files.
-Those types of directories differ for each operating system. It would be cumbersome to try to remember each OS's directory structure and perform switches based on the current OS. 
-The `System.Environment.SpecialFolder` enumeration specifies constants to retrieve paths to special folders.
-```C#
-string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-```
-
-
-
-
-### Current Directory
 * .NET aids in retreiving file/folder information.
 
 Access current directory with `Directory.GetCurrentDirectory()`.
-
-### Special Directories
-Different OSs haev distinct system folders `System.Environment.SpecialFolder` constants retrieve these paths.
+### Special directory
+.NET runs everywhere, and each operating system may have distinct special system folders. The `System.Environment.SpecialFolder` enumeration specifies constants to retrieve paths to special folders.
 ```C#
 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 ```
@@ -94,16 +127,13 @@ Combine paths cross-platform with `Path.Combine("stores","201")`.
 ```C#
 Console.WriteLine(Path.Combine("stores","201")); // outputs: stores/201
 ```
-* Remember, use the `Path.Combine` or `Path.DirectorySeporatorChar` class instead of hard coding strings, because the program might be running on many different OS's
-> The `Path` class doesn't care whether things actually exsist. Paths are conceptual, not physical, and the class is building and parsing strings for you.
+> Remember, use the `Path.Combine` or `Path.DirectorySeparatorChar` class instead of hardcoding strings, because the program might be running on many different OSs. The `Path` class doesn't care whether things actually exist; paths are conceptual, not physical, and the class is building and parsing strings for you.
 
 ### Path info
 Use  `FileInfo` and `DirectoryInfo` classes for information about the file/folder
 ```C#
 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 ```
-* These are the core concepts that you'll likley use the most often.
-
 ## Create Files and Directories
 Creating and deleting new files and directories programmatically is a common requirement in line-of-business applications
 
@@ -129,7 +159,6 @@ Files are read through the `ReadAllText` methods on the `file` class
 ```C#
 File.ReadAllText($"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales.json");
 ```
-
 ### Parse data
 this data in its string format does not do you much good. You want the ability to parse this data into a format that you can use programmatically
 
@@ -190,7 +219,7 @@ Representational State Transfer (REST)
 * `DELETE`: Delete an item of data
 
 ### RESTful APIs
-Web services that adhere to REST. They are defined through
+Web services that adhere to `REST`. They are defined through
 * a Base URI.
 * HTTP methods mentioned above
 * A media type for the data, such a JSON or XML
@@ -211,7 +240,7 @@ dotnet new webapi -f net6.0
 * **Program.cs**: Configures services and the app's HTTP request pipeline, and contains the apps managed entry point
 * **ContosoPizza.csprog**: Contains configuration metadata for the project.
 
-> **.NET HTTP REPL.**: *read-evaluate-print-loop*.it is a simple and popular way to build interactice command-line enviroments.
+> **.NET HTTP REPL.**: `read-evaluate-print-loop`.it is a simple and popular way to build interactice command-line enviroments.
 
 ### Build and test the web API
 1. Run the following command in the command shell:
@@ -219,8 +248,60 @@ dotnet new webapi -f net6.0
 dotnet run
 ```
 this:
-* Locates the project file at the current directory.
-* Retrieves and installs any required project dependencies for this project.
-* Compiles the project code.
-* Hosts the web API at both an HTTP and HTTPS endpoint
+* *Locates* the project file at the current directory.
+* *Retrieves* and installs any required project dependencies for this project.
+* *Compiles* the project code.
+* *Hosts* the web API at both an HTTP and HTTPS endpoint
     * A port from 5000 to 5300 will be selected for HTTP, and from 7000 to 7300 for HTTPS
+
+## Debugging
+A debugger helps you analyze and control your programs execution
+
+> Show or hide the debug console by selecting **Ctrl+Shift+Y**
+### Breakpoints
+* Add a breakpoint by clicking on the left side of the line number, on the line you want to break.
+    * Right clicking lets you *add conditional breakpoints*. only becoming active when the condition is met. 
+* in the `breakpoints` panel you can see and toggel all the breakpoints in your code, toggle options to break on caught or uncaught exceptions, examine your program state and trace back the source of an exception by using the `call stack`
+
+### Launch Controls
+![Alt text](https://learn.microsoft.com/en-us/training/modules/dotnet-debug/media/sidebar-controls.png)
+1. Start debugging
+2. Select the active launch configuration
+3. edit/create the `launch.json` file
+4. Open the debug terminal
+
+### Variable States
+* **Local Variables**: Accesible in the current scope. Usuall the current function
+* **Global Variables**: Accesible from everywhere in the program. System objects from JS runtime are also included. lots of stuff
+* **Closure Variables**: Accesible from the current closure, if any. A closure combines the local scope of a function with the scope from the outer function it belongs to.
+> you can unfold scopes and variables by selecting the arrow and hovering over a function parameter to peek at its value.
+
+### Watch Variables
+select the `+` button to enter a variable name or an expression to watch. **OR** right click the variable in the in the variables panel and select *Add to watch*
+
+### Call Stack
+Every time your program enters a function, an entry is added to the `call stack`. In complicated programs it represents the trail of function calls. These can be hard to decipher which is why the `call stack` panel comes in handy. filtering out unwanted information.
+
+### Control execution 
+You can control the execution flow of your program by using these controls:
+![Alt text](https://learn.microsoft.com/en-us/training/modules/dotnet-debug/media/debugger-controls.png)
+* **Continue or pause execution**: continue until the next breakpoint is hit, or pause execution.
+* **Step over**: Executes the next code statement
+* **Step into**: if next statement is a function call, move on to the first code statement in this function.
+* **Step out**: If inside a function, execute the reamaining code of this function and jump back to the statement after the intial function cal
+* **Restart**: resart from beginning
+* **Stop**: End execution
+
+> #### Warning:
+>if running a .NET console application do the following. the debug console does not accept terinal input for a running console
+>
+> 1. Open *.vscode/launch.json*
+> 2. change 
+> ```JSON
+> "console": "internalconsole",
+> ```
+> to 
+> ```JSON
+> "console": "integratedTerminal",
+> ```
+> 3. save
