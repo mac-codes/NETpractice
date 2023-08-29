@@ -1,9 +1,11 @@
 {
 	"folders": [
 		{
+			"name": "NETpractice",
 			"path": "."
 		},
 		{
+			"name": "mslearn-dotnet-files",
 			"path": "mslearn-dotnet-files"
 		}
 	],

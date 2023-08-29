@@ -56,10 +56,13 @@ The `System.Environment.SpecialFolder` enumeration specifies constants to retrie
 ```C#
 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 ```
-## File Systems
-.NET aids in retreiving file/folder information.
+
+
+
 
 ### Current Directory
+* .NET aids in retreiving file/folder information.
+
 Access current directory with `Directory.GetCurrentDirectory()`.
 
 ### Special Directories
@@ -197,3 +200,27 @@ Web services that adhere to REST. They are defined through
 * **Authentication and authorization**: API endpoints support industry-standard JSON Web Tokens (JWTs) for security. Policy-based authorization allows flexible access control rule creation in code.
 * **Routing alongside your code**:ASP.NET enables route and verb definition with attributes alongside your code. Data from path, query, and body are bound to method parameters
 * **HTTPS by default**: ASP.NET supports HTTPS by default. It generates a test certification and facilitates local HTTPS setup. ensuring secure debugging before publication.
+
+# Creating WEB APIs 
+In the terminal window paste the following command.
+```.NET CLI
+dotnet new webapi -f net6.0
+```
+#### Files and directories
+* **Controllers/**: Contains classes with public methods exposed as HTTP endpoints
+* **Program.cs**: Configures services and the app's HTTP request pipeline, and contains the apps managed entry point
+* **ContosoPizza.csprog**: Contains configuration metadata for the project.
+
+> **.NET HTTP REPL.**: *read-evaluate-print-loop*.it is a simple and popular way to build interactice command-line enviroments.
+
+### Build and test the web API
+1. Run the following command in the command shell:
+```.NET CLI
+dotnet run
+```
+this:
+* Locates the project file at the current directory.
+* Retrieves and installs any required project dependencies for this project.
+* Compiles the project code.
+* Hosts the web API at both an HTTP and HTTPS endpoint
+    * A port from 5000 to 5300 will be selected for HTTP, and from 7000 to 7300 for HTTPS
